@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up – BRAHMSKPT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="signup">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html" class="brand-name">BRAHMSKPT</a>
+      <span class="tagline">Powering Ideas into Reality</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>Create an Account</h1>
+    <form id="signup-form" class="form">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" required />
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" minlength="6" required />
+      <button type="submit" class="btn">Sign Up</button>
+      <p>Already have an account? <a href="login.html">Log in</a></p>
+      <p id="auth-msg" class="muted"></p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p class="copyright">© 2025 BRAHMSKPT. All Rights Reserved.</p>
+  </footer>
+
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>

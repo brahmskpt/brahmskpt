@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – BRAHMSKPT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html" class="brand-name">BRAHMSKPT</a>
+      <span class="tagline">Powering Ideas into Reality</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="signup.html" class="cta">Work With Us</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you. Fill the form and we’ll get back within 1–2 business days.</p>
+    <form id="contact-form" class="form">
+      <label for="cname">Your Name</label>
+      <input id="cname" name="name" type="text" required />
+      <label for="cemail">Email</label>
+      <input id="cemail" name="email" type="email" required />
+      <label for="cmsg">Message</label>
+      <textarea id="cmsg" name="message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send</button>
+      <p class="muted">Tip: This uses your email app by default. To use a form service later, replace with Formspree/Web3Forms.</p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p class="copyright">© 2025 BRAHMSKPT. All Rights Reserved.</p>
+  </footer>
+  <script>
+    // Minimal email fallback without a backend
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const message = encodeURIComponent(document.getElementById('cmsg').value.trim());
+      const subject = encodeURIComponent('New message from ' + name);
+      window.location.href = `mailto:info@brahmskpt.com?subject=${subject}&body=From:%20${encodeURIComponent(name)}%20(${encodeURIComponent(email)})%0D%0A%0D%0A${message}`;
+    });
+  </script>
+</body>
+</html>
