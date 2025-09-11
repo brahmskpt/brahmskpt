@@ -12,14 +12,13 @@ const signupForm = document.querySelector("#signup-form");
 if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const name = document.querySelector("#name").value.trim(); // Added name input
+    const name = document.querySelector("#name").value.trim();
     const email = document.querySelector("#email").value.trim();
     const password = document.querySelector("#password").value.trim();
     const msg = document.querySelector("#auth-msg");
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      // Save display name
       await updateProfile(userCredential.user, { displayName: name });
 
       msg.style.color = "green";
@@ -63,16 +62,19 @@ const pemailEl = document.getElementById("pemail");
 const puidEl = document.getElementById("puid");
 const welcomeEl = document.getElementById("welcome");
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    pnameEl.textContent = user.displayName || "User";
-    pemailEl.textContent = user.email;
-    puidEl.textContent = user.uid;
-    welcomeEl.textContent = `Welcome, ${user.displayName || "User"}!`;
-  } else {
-    window.location.href = "login.html";
-  }
-});
+if (pnameEl && pemailEl && puidEl && welcomeEl) {
+  onAuthStateChanged(auth, (user) => {
+    console.log("Auth state:", user);
+    if (user) {
+      pnameEl.textContent = user.displayName || "User";
+      pemailEl.textContent = user.email || "No Email";
+      puidEl.textContent = user.uid;
+      welcomeEl.textContent = `Welcome, ${user.displayName || "User"}!`;
+    } else {
+      window.location.href = "login.html";
+    }
+  });
+}
 
 // ---------------- LOGOUT ----------------
 const logoutBtn = document.querySelector("#logout-btn");
